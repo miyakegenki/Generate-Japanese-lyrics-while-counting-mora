@@ -38,19 +38,21 @@ Open AI Chat GPTもGoogle GeminiもAnthropic Claudeも日本語の歌詞生成�
 - fugashi + unidic-lite による形態素解析
 
 ## 必要なもの
-- `GEMINI_API_KEY`（Google Gemini 1.5 flashを利用するので。Google ai studioから入手可能です）
+- `GEMINI_API_KEY`（Google Gemini 1.5 flashを利用するので。Google Ai Studioから入手可能です）
 - Python実行環境（Python 3.10で動作確認）
 - fugashi（内部でMeCabを使用。モーラ数の解析に使用）
 - unidic-lite（日本語辞書。形態素解析の精度向上に使用）
 
 ## 設定
 - **APIキーの設定方法**：
-
-  ```python
-  API_KEY = os.getenv("GEMINI_API_KEY", "あなたのGEMINI_API_KEY").strip()
-  ```
-
-上記の「あなたのGEMINI_API_KEY」を直接書くか、環境変数 GEMINI_API_KEY を使ってください。
+  Windowsの検索バーで「環境変数を編集」と入力し、「システム環境変数の編集」を選択します。
+  「システムのプロパティ」ウィンドウが表示されたら、「環境変数」ボタンをクリックします。
+  「環境変数」ウィンドウの上半分、「ユーザーの環境変数」セクションにある「新規」ボタンをクリックします。
+  「新しいユーザー変数」ウィンドウで、以下の情報を入力します。
+  - 変数名: GEMINI_API_KEY
+  - 変数値: Google Ai Studioから入手したAPIキー
+  「OK」をクリックしてすべてのウィンドウを閉じます。
+  注意点：環境変数を設定した後は、PowerShellやVS Codeなど、APIキーを使いたいアプリケーションを一度再起動する必要があります。再起動することで、新しい環境変数が読み込まれます。
 　
 - **題材（THEME）**
   このPythonスクリプトでは例として「THEME = "恋愛"」にしています。任意でここを書き換えて実行してください。
