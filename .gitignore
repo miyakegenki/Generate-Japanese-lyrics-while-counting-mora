@@ -1,0 +1,46 @@
+# ファイルを無視
+LyricsGenerator.py
+LyricsGenerator2.py
+LyricsGenerator3.py
+LyricsGenerator4.py
+LyricsGenerator5.py
+LyricsGenerator6.py
+LyricsGenerator7.py
+LyricsGenerator8.py
+LyricsGenerator9.py
+LyricsGenerator10.py
+
+# 仮想環境
+genai-env/
+genai-env-py310/
+
+# 特定の拡張子を無視
+*.pyc
+*.log
+
+# サブフォルダ内の特定ファイルも無視
+# Pythonキャッシュ
+**/__pycache__/
+*.py[cod]
+
+# 機密情報
+.env
+GEMINI_API_KEY
+*.key
+*.pem
+
+# OS依存ファイル
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebookのチェックポイント
+.ipynb_checkpoints/
+
+# VSCode設定
+.vscode/
+
+# ログや一時ファイル
+*.log
+*.tmp
+
+
