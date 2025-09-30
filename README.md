@@ -35,7 +35,8 @@ Open AI Chat GPTもGoogle GeminiもAnthropic Claudeも日本語の歌詞生成�
 ## 特徴
 - モーラ数（音数）制約付きの歌詞生成
 - 違反行の自動検出と修復ループ
-- fugashi + unidic-lite による形態素解析
+- Gemini モデルの自動選択と優先順位制御
+- fugashi + unidic-lite + cutletによる形態素解析
 
 ## 必要なもの
 - `GEMINI_API_KEY`（Google Gemini 1.5 flashを利用するので。Google Ai Studioから入手可能です）
@@ -43,6 +44,18 @@ Open AI Chat GPTもGoogle GeminiもAnthropic Claudeも日本語の歌詞生成�
 - fugashi（内部でMeCabを使用。モーラ数の解析に使用）
 - unidic-lite（日本語辞書。形態素解析の精度向上に使用）
 - cutlet（日本語のふりがなをローマ字に変換。Geminiへの入力整形に使用。MeCab単体では読み仮名が不安定なため、cutletを併用することでより確実な読み仮名取得を実現）
+
+## Gemini モデルの選択について
+
+本スクリプトでは、Google Gemini API の利用可能なモデルを自動取得し、以下の優先順位で選択します：
+
+1. `gemini-flash-latest`（最新の Flash モデル。軽量かつ高速）
+2. `gemini-2.5-flash`（Flash 系の安定モデル）
+3. `gemini-flash-lite-latest`（超軽量モデル。制約が多いが高速）
+4. `gemini-pro` 系（高性能だが、クォータ消費が激しく応答が重い）
+
+この優先順位により、無料枠でも高速かつ安定した歌詞生成が可能です。  
+利用可能なモデルは `genai.GenerativeModel.list_models()` によって自動取得され、手動で指定する必要はありません。
 
 ## 設定
 - **APIキーの設定方法**：
@@ -93,4 +106,11 @@ python generate_lyrics_ver(最新版).py
 商用・非商用問わず、自由に使用・改変・再配布・fork していただけます。  
 著作権表示とライセンス文を保持する限り、制限はほとんどありません。  
 詳細は [LICENSE](LICENSE) ファイルをご覧ください。
+
+## バージョン履歴
+
+### ver13
+- Geminiモデル名の自動取得機能を追加
+- モデル選択の優先順位を最適化
+- cutletライブラリを導入し、ローマ字変換精度を向上
 
