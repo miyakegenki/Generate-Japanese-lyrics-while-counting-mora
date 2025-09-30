@@ -42,6 +42,7 @@ Open AI Chat GPTもGoogle GeminiもAnthropic Claudeも日本語の歌詞生成�
 - Python実行環境（Python 3.10で動作確認）
 - fugashi（内部でMeCabを使用。モーラ数の解析に使用）
 - unidic-lite（日本語辞書。形態素解析の精度向上に使用）
+- cutlet（日本語のふりがなをローマ字に変換。Geminiへの入力整形に使用。MeCab単体では読み仮名が不安定なため、cutletを併用することでより確実な読み仮名取得を実現）
 
 ## 設定
 - **APIキーの設定方法**：
