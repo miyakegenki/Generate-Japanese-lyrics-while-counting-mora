@@ -1,3 +1,4 @@
 fugashi
 unidic-lite
 google-generativeai
+cutlet
